@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="./output.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <title>Techlify | Turns leads into paying customers</title>
+    <meta property="og:title" content="Techlify | Turns leads into paying customers"/>
+    <meta property="og:url" content="https://www.yourwebsite.com/page"/>
+    <meta property="og:image" content="https://www.yourwebsite.com/page/assets/preview.png">
+    <link rel="shortcut icon" href="./assets/favicon.png" type="image/png">
+</head>
+<body class="bg-slate-900 overflow-x-hidden">
+    <!--NAV-->
+    <nav class="p-4 bg-slate-950/75 backdrop-blur-3xl w-full flex place-items-center text-sm fixed top-0 z-50">
+        <div class="w-full flex place-items-center md:max-w-4xl mx-auto">
+            <a class="mr-auto" href="./">
+                <img src="./assets/Logo-sekei.svg" alt="Techlify logo">
+            </a>
+            <button class="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3 rounded-full block md:hidden">
+                <img src="./assets/PaperPlaneTilt.svg" alt="Contact icon">
+            </button>
+            <button class="font-inter bg-blue-600 hover:bg-blue-500 text-white px-8 py-3 rounded-full font-semibold hidden md:block">
+                Contact us
+            </button>
+        </div>
+    </nav>
+    <!--HERO-->
+    <div class="px-4 pt-20 min-h-screen flex flex-col mx-auto gap-4 md:max-w-2xl">
+        <div class="absolute -top-48 left-10 -z-10 w-full flex justify-center overflow-x-hidden md:hidden">
+            <img src="./assets/3d-small.webp" alt="" class="min-w-[880px] max-w-full">
+        </div>
+        <h1 class="text-slate-200 text-5xl font-bold mt-auto font-grotesk md:text-7xl">Increase your customer revenue <span class="text-blue-500">by 250%</span></h1>
+        <p class="text-sm text-slate-300 font-inter md:text-base">Unlock the untapped potential of your business and witness remarkable growth with our revolutionary solutions. Our cutting-edge strategies, backed by data-driven insights and a team of experts, will propel your business to new heights.</p>
+        <a class="font-inter w-full border px-8 border-slate-700 hover:bg-slate-800 rounded-full py-3 text-sm font-semibold text-blue-600 md:w-fit" href="#pricing">See pricing</a>
+        <div class="h-4"></div>
+    </div>
+    <!--PLANS CONTAINER-->
+    <div 
+        class="px-4 py-20 relative flex justify-center cursor-pointer" 
+        id="pricing"
+        x-data="{ selectedPlan: 'pro' }"
+        >
+        <!--PLANS CARD-->
+        <div class="p-4 bg-slate-800 rounded-lg flex flex-col gap-4 relative overflow-hidden md:max-w-3xl">
+            <img src="./assets/Cardholder.svg" class="absolute -top-24 -right-24">
+            <div class="flex justify-between z-10">
+                <div class="flex flex-col gap-4 relative">
+                    <h2 class="text-slate-200 text-3xl font-bold font-inter md:text-5xl">Select your plan</h2>
+                    <p class="text-slate-400 text-sm font-medium font-inter md:max-w-md">Our plans are tailored for all levels and are designed to help you get the most value for you. If these plans don’t suit your needs, feel free to <a href="" class="text-blue-500 underline">reach out to our sales team.</a></p>
+                </div>
+                <button class="font-inter bg-blue-600 hover:bg-blue-500 text-white font-semibold px-4 py-2 rounded-full h-fit hidden md:flex">Continue</button>
+            </div>
+            <div class="flex flex-col gap-4 md:flex-row z-10">
+                <!--STARTER PLAN-->
+                <div 
+                    class="p-4 rounded-md flex flex-col gap-2 h-fit"
+                    :class="selectedPlan === 'starter' ? 'bg-slate-700 outline outline-2 outline-blue-500 ' : 'bg-slate-800 outline outline-slate-700'"
+                    @click="selectedPlan = 'starter'"
+                >
+                    <h3 class="uppercase text-blue-500 font-semibold text-xs font-inter">Starter</h3>
+                    <span class="text-slate-100 text-4xl font-semibold font-grotesk">$29.99</span>
+                    <p class="text-xs text-slate-400 font-inter">Perfect for freelancers, small agencies, and newcomers who want to get started learning how to use the tool.</p>
+                </div>
+                <!--PRO PLAN-->
+                <div 
+                    class="px-1 pb-1 rounded-md cursor-pointer transition-all duration-300"
+                    :class="selectedPlan === 'pro' ? 'bg-blue-500 outline outline-blue-400 shadow-lg shadow-blue-300/30' : 'bg-blue-600'"
+                    @click="selectedPlan = 'pro'"
+                >
+                    <span class="text-slate-50 font-semibold uppercase text-xs py-2 flex place-items-center justify-center gap-2">
+                        <span class="relative flex h-3 w-3">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-100 opacity-50"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-blue-100"></span>
+                        </span>
+                        Most popular
+                    </span>
+                    <div 
+                        class="p-4 rounded-md flex flex-col gap-2"
+                        :class="selectedPlan === 'pro' ? 'bg-slate-700' : 'bg-slate-800'"
+                        >
+                        <h3 class="uppercase text-blue-500 font-semibold text-xs font-inter">Pro</h3>
+                        <span class="text-slate-100 text-4xl font-semibold font-grotesk">$59.99/yr</span>
+                        <p class="text-xs text-slate-400 font-inter">Tailored for professionals seeking advanced functionality, this plan provides enhanced tools to elevate your work to the next level.</p>
+                    </div>
+                </div>
+                <!--ENTERPRISE PLAN-->
+                <div 
+                    class="p-4 rounded-md flex flex-col gap-2 h-fit"
+                    :class="selectedPlan === 'enterprise' ? 'bg-slate-700 outline outline-2 outline-blue-500 ' : 'bg-slate-800 outline outline-slate-700'"
+                    @click="selectedPlan = 'enterprise'"
+                >
+                    <h3 class="uppercase text-blue-500 font-semibold text-xs font-inter">Enterprise</h3>
+                    <span class="text-slate-100 text-4xl font-semibold font-grotesk">$99.99/yr</span>
+                    <p class="text-xs text-slate-400 font-inter">Designed for large organizations requiring comprehensive solutions, this plan offers custom integrations, SSO, and dedicated support.</p>
+                </div>
+            </div>
+            <button class="font-inter bg-blue-600 hover:bg-blue-500 text-white font-semibold px-4 py-2 rounded-full md:hidden">Continue</button>
+        </div>
+        <img src="./assets/triangles.svg" class="absolute bottom-0 blur-[100px] -z-10">
+        <img src="./assets/3d-large.webp" class="absolute bottom-0 -left-[800px] -z-10 rotate-180 hidden md:block" alt="">
+    </div>
+    <img src="./assets/3d-large.webp" class="absolute top-0 -right-[640px] -z-10 hidden md:block" alt="">
+</body>
+</html>
